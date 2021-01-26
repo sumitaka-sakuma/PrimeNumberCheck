@@ -15,6 +15,7 @@ public class primeNumber {
 
 	public static void primeNumberCheck() {
 
+		// 標準入力
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		// 素数リスト
@@ -24,31 +25,34 @@ public class primeNumber {
 
 		String inputStr = null;
 		int inputNum = 0;
+		int yakusuu = 0;
 		try {
+			// 入力、数値に変換
 			inputStr = br.readLine();
 			inputNum = Integer.parseInt(inputStr);
+
+			for (int i = 1; i <= inputNum; i++) {
+
+				// 1から順に割っていき割り切れるとき、yakusuuをインクリメント
+				yakusuu = 0;
+				for (int j = 1; j <= inputNum; j++) {
+					if (i % j == 0) {
+						yakusuu++;
+					}
+				}
+
+				// 約数が２つの場合は、素数
+				if (yakusuu == 2) {
+					System.out.println(i + "は素数です");
+					primeNumList.add(i);
+					continue;
+				}
+
+				// 合成数リストに格納
+				compositeNumList.add(i);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-
-		int yakusuu = 0;
-		for (int i = 1; i <= inputNum; i++) {
-
-			yakusuu = 0;
-			for (int j = 1; j <= inputNum; j++) {
-
-				if (i % j == 0) {
-					yakusuu++;
-				}
-			}
-
-			if (yakusuu == 2) {
-				System.out.println(i + "は素数です");
-				primeNumList.add(i);
-				continue;
-			}
-
-			compositeNumList.add(i);
 		}
 
 		for (int primeNum : primeNumList) {
