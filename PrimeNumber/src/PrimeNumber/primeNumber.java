@@ -31,6 +31,11 @@ public class primeNumber {
 			inputStr = br.readLine();
 			inputNum = Integer.parseInt(inputStr);
 
+			// 2未満の素数は存在しないため処理を終了する
+			if (inputNum < 2) {
+				return;
+			}
+
 			for (int i = 1; i <= inputNum; i++) {
 
 				// 1から順に割っていき割り切れるとき、yakusuuをインクリメント
@@ -51,7 +56,7 @@ public class primeNumber {
 				// 合成数リストに格納
 				compositeNumList.add(i);
 			}
-		} catch (IOException e) {
+		} catch (IOException | NumberFormatException e) {
 			e.printStackTrace();
 		}
 
