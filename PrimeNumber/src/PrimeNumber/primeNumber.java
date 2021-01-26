@@ -3,6 +3,8 @@ package PrimeNumber;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class primeNumber {
 
@@ -14,6 +16,11 @@ public class primeNumber {
 	public static void primeNumberCheck() {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		// 素数リスト
+		List<Integer> primeNumList = new ArrayList<>();
+		// 合成数リスト
+		List<Integer> compositeNumList = new ArrayList<>();
 
 		String inputStr = null;
 		int inputNum = 0;
@@ -37,7 +44,18 @@ public class primeNumber {
 
 			if (yakusuu == 2) {
 				System.out.println(i + "は素数です");
+				primeNumList.add(i);
+				continue;
 			}
+
+			compositeNumList.add(i);
+		}
+
+		for (int primeNum : primeNumList) {
+			System.out.println("素数:" + primeNum);
+		}
+		for (int compositeNum : compositeNumList) {
+			System.out.println("合成数:" + compositeNum);
 		}
 	}
 }
