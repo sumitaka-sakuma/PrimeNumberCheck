@@ -12,12 +12,12 @@ public class primeNumber {
 
 		// 素数判定処理
 		boolean primeNumFlg = primeNumberCheck();
-		
+
 	}
 
 	/*
 	 * 素数判定処理
-	 *
+	 * @return primeNumFlg
 	 */
 	public static boolean primeNumberCheck() {
 
