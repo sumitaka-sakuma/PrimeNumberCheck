@@ -56,7 +56,7 @@ public class PrimeNumber {
 		List<Integer> primeNumList = new ArrayList<>();
 		// 合成数リスト
 		List<Integer> compositeNumList = new ArrayList<>();
-
+		// 約数（約数が2つであるかどうかで、素数判定する）
 		int yakusuu = 0;
 
 		// 2未満の素数は存在しないため処理を終了する
