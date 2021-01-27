@@ -10,10 +10,16 @@ public class primeNumber {
 
 	public static void main(String[] args) {
 
-		primeNumberCheck();
+		// 素数判定処理
+		boolean primeNumFlg = primeNumberCheck();
+		
 	}
 
-	public static void primeNumberCheck() {
+	/*
+	 * 素数判定処理
+	 *
+	 */
+	public static boolean primeNumberCheck() {
 
 		// 標準入力
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -34,7 +40,7 @@ public class primeNumber {
 
 			// 2未満の素数は存在しないため処理を終了する
 			if (inputNum < 2) {
-				return;
+				return primeNumFlg;
 			}
 
 			for (int i = 1; i <= inputNum; i++) {
@@ -85,8 +91,6 @@ public class primeNumber {
 			e.printStackTrace();
 		}
 
-
-
-
+		return primeNumFlg;
 	}
 }
