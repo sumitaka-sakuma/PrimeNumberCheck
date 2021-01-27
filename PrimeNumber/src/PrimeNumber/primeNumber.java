@@ -17,7 +17,8 @@ public class primeNumber {
 
 		// 標準入力
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+		// 素数判定フラグ
+		boolean primeNumFlg = false;
 		// 素数リスト
 		List<Integer> primeNumList = new ArrayList<>();
 		// 合成数リスト
@@ -46,25 +47,46 @@ public class primeNumber {
 					}
 				}
 
-				// 約数が２つの場合は、素数
-				if (yakusuu == 2) {
-					System.out.println(i + "は素数です");
-					primeNumList.add(i);
-					continue;
+				// 入力された値が素数かを判定
+				if (inputNum == i) {
+					// 約数が２つの場合は、素数
+					if (yakusuu == 2) {
+						// 素数判定フラグをtrueにする
+						primeNumFlg = true;
+						primeNumList.add(i);
+					}
+				} else {
+					// 約数が２つの場合は、素数
+					if (yakusuu == 2) {
+						primeNumList.add(i);
+						continue;
+					}
 				}
 
 				// 合成数リストに格納
 				compositeNumList.add(i);
 			}
+
+			for (int primeNum : primeNumList) {
+				System.out.println("素数:" + primeNum);
+			}
+			for (int compositeNum : compositeNumList) {
+				System.out.println("合成数:" + compositeNum);
+			}
+
+			// 結果表示
+			if (primeNumFlg) {
+				System.out.println("素数です");
+			} else {
+				System.out.println("素数ではありません");
+			}
+
 		} catch (IOException | NumberFormatException e) {
 			e.printStackTrace();
 		}
 
-		for (int primeNum : primeNumList) {
-			System.out.println("素数:" + primeNum);
-		}
-		for (int compositeNum : compositeNumList) {
-			System.out.println("合成数:" + compositeNum);
-		}
+
+
+
 	}
 }
