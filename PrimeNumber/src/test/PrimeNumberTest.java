@@ -1,5 +1,8 @@
 package test;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -17,9 +20,10 @@ public class PrimeNumberTest {
 	@Test
 	public void parseToInteger() {
 
-		//String str = "31";
-		//int except = 31;
-
+		String str = "31";
+		int except = 31;
+		int actual = PrimeNumber.parseToInteger(str);
+		assertThat(except, is(actual));
 	}
 
 }

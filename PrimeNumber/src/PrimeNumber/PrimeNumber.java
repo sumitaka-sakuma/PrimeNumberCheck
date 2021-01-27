@@ -10,8 +10,17 @@ public class PrimeNumber {
 
 	public static void main(String[] args) {
 
+		// 標準入力
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String inputStr = null;
+		try {
+			inputStr = br.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		// 標準入力値変換処理
-		int inputNum = parseToInteger();
+		int inputNum = parseToInteger(inputStr);
 		// 素数判定処理
 		boolean primeNumFlg = primeNumberCheck(inputNum);
 
@@ -19,20 +28,16 @@ public class PrimeNumber {
 
 	/*
 	 * 標準入力変換処理
+	 * @param inputStr
 	 * @return inputNum
 	 */
-	public static int parseToInteger() {
+	public static int parseToInteger(String inputStr) {
 
-		// 標準入力
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		String inputStr;
 		int inputNum = 0;
 		try {
-			// 入力、数値に変換
-			inputStr = br.readLine();
+			// 数値に変換
 			inputNum = Integer.parseInt(inputStr);
-		} catch (IOException e) {
+		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		return inputNum;
