@@ -1,8 +1,5 @@
 package PrimeNumber;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,16 +14,13 @@ public class PrimeNumber {
 
 	public static void main(String[] args) throws NumberFormatException{
 
-		// 標準入力
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String inputStr = null;
-		try {
-			inputStr = br.readLine();
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+		// 引数がない場合、処理を終了する
+		if (args.length == 0) {
+			return;
 		}
-		// 数値に変換
+
+		// 引数を数値に変換
+		String inputStr = args[0];
 		int inputNum = Integer.parseInt(inputStr);
 
 		// 素数判定処理
