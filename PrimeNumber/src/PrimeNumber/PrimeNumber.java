@@ -39,6 +39,7 @@ public class PrimeNumber {
 			inputNum = Integer.parseInt(inputStr);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
+			//System.exit(1);
 		}
 		return inputNum;
 	}
