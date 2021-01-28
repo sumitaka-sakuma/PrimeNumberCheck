@@ -2,7 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -12,13 +12,15 @@ import PrimeNumber.PrimeNumber;
 public class PrimeNumberTest {
 
 	private static PrimeNumber rn;
+	public static boolean primeNumFlg = false;
 
 	@Rule
     public ExpectedException thrown = ExpectedException.none();
 
-	@BeforeClass
-	public static void getTestClass() {
+	@Before
+	public void getTestClass() {
 		rn = new PrimeNumber();
+		primeNumFlg = false;
 	}
 
 	@SuppressWarnings("static-access")
@@ -31,14 +33,13 @@ public class PrimeNumberTest {
 		assertTrue(rn.primeNumFlg);
 	}
 
-//	@SuppressWarnings("static-access")
-//	@Test(expected = NumberFormatException.class)
-//	public void parseToIntegerFail() {
-//
-//		thrown.expect(NumberFormatException.class);
-//		String str = "文字列";
-//		rn.main(str);
-//
-//	}
+	@SuppressWarnings("static-access")
+	@Test
+	public void PrimeNumCheckFalse() {
 
+		String str[] = {"30"};
+		int except = 30;
+		rn.main(str);
+		assertFalse(primeNumFlg);
+	}
 }
