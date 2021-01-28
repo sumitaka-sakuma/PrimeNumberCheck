@@ -10,7 +10,7 @@ public class PrimeNumber {
 	// 合成数リスト
 	private static List<Integer> compositeNumList = new ArrayList<>();
 	// 素数判定フラグ
-	private static boolean primeNumFlg = false;
+	public static boolean primeNumFlg = false;
 
 	public static void main(String[] args) {
 
