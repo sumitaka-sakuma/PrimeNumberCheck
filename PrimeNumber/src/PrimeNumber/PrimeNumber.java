@@ -29,7 +29,6 @@ public class PrimeNumber {
 			return;
 		}
 
-
 		// 素数判定処理
 		boolean primeNumFlg = primeNumberCheck(inputNum);
 
