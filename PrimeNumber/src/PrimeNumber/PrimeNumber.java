@@ -12,7 +12,7 @@ public class PrimeNumber {
 	// 素数判定フラグ
 	private static boolean primeNumFlg = false;
 
-	public static void main(String[] args) throws NumberFormatException{
+	public static void main(String[] args) {
 
 		// 引数がない場合、処理を終了する
 		if (args.length == 0) {
@@ -21,7 +21,14 @@ public class PrimeNumber {
 
 		// 引数を数値に変換
 		String inputStr = args[0];
-		int inputNum = Integer.parseInt(inputStr);
+		int inputNum = 0;
+		try {
+			inputNum = Integer.parseInt(inputStr);
+		} catch (NumberFormatException ex) {
+			ex.getMessage();
+			return;
+		}
+
 
 		// 素数判定処理
 		boolean primeNumFlg = primeNumberCheck(inputNum);
