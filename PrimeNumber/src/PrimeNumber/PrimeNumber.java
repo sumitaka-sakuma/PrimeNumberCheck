@@ -15,7 +15,7 @@ public class PrimeNumber {
 	// 素数判定フラグ
 	private static boolean primeNumFlg = false;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException{
 
 		// 標準入力
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,11 +23,12 @@ public class PrimeNumber {
 		try {
 			inputStr = br.readLine();
 		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		// 数値に変換
+		int inputNum = Integer.parseInt(inputStr);
 
-		// 標準入力値変換処理
-		int inputNum = parseToInteger(inputStr);
 		// 素数判定処理
 		boolean primeNumFlg = primeNumberCheck(inputNum);
 
@@ -44,24 +45,6 @@ public class PrimeNumber {
 		for (int compositeNum : compositeNumList) {
 			System.out.println("合成数:" + compositeNum);
 		}
-	}
-
-	/*
-	 * 標準入力変換処理
-	 * @param inputStr
-	 * @return inputNum
-	 */
-	public static int parseToInteger(String inputStr) {
-
-		int inputNum = 0;
-		try {
-			// 数値に変換
-			inputNum = Integer.parseInt(inputStr);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-			//System.exit(1);
-		}
-		return inputNum;
 	}
 
 	/*
