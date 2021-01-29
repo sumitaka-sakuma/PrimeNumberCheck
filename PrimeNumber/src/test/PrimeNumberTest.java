@@ -1,6 +1,10 @@
 package test;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -41,5 +45,16 @@ public class PrimeNumberTest {
 		int except = 30;
 		rn.main(str);
 		assertFalse(primeNumFlg);
+	}
+
+	@Test
+	public void primeNumberList() {
+
+		String str[] = {"13"};
+		List<Integer> expectPrimeNumList = Arrays.asList(2,3,5,7,11,13);
+		List<Integer> expectCompositeNumList = Arrays.asList(1,4,6,8,9,10,12);
+		rn.main(str);
+		assertThat(rn.primeNumList, is(expectPrimeNumList));
+		assertThat(rn.compositeNumList, is(expectCompositeNumList));
 	}
 }

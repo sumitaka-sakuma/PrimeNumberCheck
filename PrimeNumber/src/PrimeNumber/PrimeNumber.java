@@ -6,9 +6,9 @@ import java.util.List;
 public class PrimeNumber {
 
 	// 素数リスト
-	private static List<Integer> primeNumList = new ArrayList<>();
+	public static List<Integer> primeNumList = new ArrayList<>();
 	// 合成数リスト
-	private static List<Integer> compositeNumList = new ArrayList<>();
+	public static List<Integer> compositeNumList = new ArrayList<>();
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
 
