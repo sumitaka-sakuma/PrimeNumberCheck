@@ -6,11 +6,28 @@ import java.util.List;
 public class PrimeNumber {
 
 	// 素数リスト
-	public static List<Integer> primeNumList = new ArrayList<>();
+	private static List<Integer> primeNumList = new ArrayList<>();
 	// 合成数リスト
-	public static List<Integer> compositeNumList = new ArrayList<>();
+	private static List<Integer> compositeNumList = new ArrayList<>();
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
+
+
+	public static List<Integer> getPrimeNumList() {
+		return primeNumList;
+	}
+
+	public static void setPrimeNumList(List<Integer> primeNumList) {
+		PrimeNumber.primeNumList = primeNumList;
+	}
+
+	public static List<Integer> getCompositeNumList() {
+		return compositeNumList;
+	}
+
+	public static void setCompositeNumList(List<Integer> compositeNumList) {
+		PrimeNumber.compositeNumList = compositeNumList;
+	}
 
 	public static void main(String[] args) {
 
@@ -39,10 +56,10 @@ public class PrimeNumber {
 			System.out.println("素数ではありません");
 		}
 
-		for (int primeNum : primeNumList) {
+		for (int primeNum : getPrimeNumList()) {
 			System.out.println("素数:" + primeNum);
 		}
-		for (int compositeNum : compositeNumList) {
+		for (int compositeNum : getCompositeNumList()) {
 			System.out.println("合成数:" + compositeNum);
 		}
 	}
@@ -78,19 +95,21 @@ public class PrimeNumber {
 				if (yakusuu == 2) {
 					// 素数判定フラグをtrueにする
 					primeNumFlg = true;
-					primeNumList.add(i);
+					getPrimeNumList().add(i);
+					break;
 				}
 			} else {
 				// 約数が２つの場合は、素数
 				if (yakusuu == 2) {
-					primeNumList.add(i);
+					getPrimeNumList().add(i);
 					continue;
 				}
 			}
 
 			// 合成数リストに格納
-			compositeNumList.add(i);
+			getCompositeNumList().add(i);
 		}
 		return primeNumFlg;
 	}
+
 }
