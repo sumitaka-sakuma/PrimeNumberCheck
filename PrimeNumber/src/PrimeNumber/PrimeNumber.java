@@ -10,7 +10,6 @@ public class PrimeNumber {
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
 
-
 	public static void main(String[] args) {
 
 		// 引数がない場合、処理を終了する
@@ -91,13 +90,13 @@ public class PrimeNumber {
 					continue;
 				}
 			}
-
 			// 合成数リストに格納
 			compositeNumList.add(i);
 		}
-
+		// 素数、合成数のリストを格納
 		list.setPrimeNumList(primeNumList);
 		list.setCompositeNumList(compositeNumList);
+
 		return primeNumFlg;
 	}
 
