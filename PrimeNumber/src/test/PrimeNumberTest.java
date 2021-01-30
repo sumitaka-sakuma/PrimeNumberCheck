@@ -54,7 +54,7 @@ public class PrimeNumberTest {
 		List<Integer> expectPrimeNumList = Arrays.asList(2,3,5,7,11,13);
 		List<Integer> expectCompositeNumList = Arrays.asList(1,4,6,8,9,10,12);
 		rn.main(str);
-		assertThat(rn.primeNumList, is(expectPrimeNumList));
-		assertThat(rn.compositeNumList, is(expectCompositeNumList));
+		assertThat(rn.list.getPrimeNumList(), is(expectPrimeNumList));
+		assertThat(rn.list.getCompositeNumList(), is(expectCompositeNumList));
 	}
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class PrimeNumber {
 
 	// リストの取得、格納クラスインスタンス
-	static ListSetterGetter list = new ListSetterGetter();
+	public static ListSetterGetter list = new ListSetterGetter();
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
 
