@@ -28,6 +28,14 @@ public class PrimeNumberTest {
 	}
 
 	@SuppressWarnings("static-access")
+	@Test(expected = NullPointerException.class)
+	public void emptyArgumentCheck() {
+
+		String[] emptyStr = null;
+		rn.main(emptyStr);
+	}
+
+	@SuppressWarnings("static-access")
 	@Test
 	public void PrimeNumCheckTrue() {
 
@@ -47,10 +55,12 @@ public class PrimeNumberTest {
 		assertFalse(primeNumFlg);
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void primeNumberList() {
 
 		String str[] = {"13"};
+		// 期待値としての素数、合成数のリスト
 		List<Integer> expectPrimeNumList = Arrays.asList(2,3,5,7,11,13);
 		List<Integer> expectCompositeNumList = Arrays.asList(1,4,6,8,9,10,12);
 		rn.main(str);

@@ -14,7 +14,7 @@ public class PrimeNumber {
 
 		// 引数がない場合、処理を終了する
 		if (args.length == 0) {
-			return;
+			throw new NullPointerException("引数がありません");
 		}
 
 		// 引数を数値に変換
