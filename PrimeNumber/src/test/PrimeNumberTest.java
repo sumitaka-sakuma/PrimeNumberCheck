@@ -14,75 +14,66 @@ import org.junit.runner.RunWith;
 import PrimeNumber.PrimeNumber;
 
 @RunWith(Enclosed.class)
+@SuppressWarnings("static-access")
 public class PrimeNumberTest {
 
 	////////////////////////////////
 	// 引数チェックのテストクラス
-	public static class checkTheArugment {
-
-		private static PrimeNumber rn;
-		public static boolean primeNumFlg = false;
-		private String[] str = new String[1];
-		private int except = 0;
-
-		@Before
-		public void getTestClass() {
-			rn = new PrimeNumber();
-			rn.primeNumFlg = false;
-		}
-
-		@SuppressWarnings("static-access")
-		@Test(expected = NullPointerException.class)
-		public void emptyArgumentCheck() {
-
-			String[] emptyStr = null;
-			rn.main(emptyStr);
-		}
-
-		@SuppressWarnings("static-access")
-		@Test
-		public void argumentIsTwoOrMore() {
-
-			String[] str = {"2"};
-			rn.main(str);
-			assertTrue(rn.primeNumFlg);
-		}
-
-		@SuppressWarnings("static-access")
-		@Test
-		public void argumentFewer2() {
-
-			String[] str = {"1"};
-			rn.main(str);
-			assertFalse(rn.primeNumFlg);
-		}
-	}
+//	public static class checkTheArugment {
+//
+//		private static PrimeNumber rn;
+//		public static boolean primeNumFlg = false;
+//		private String[] str = new String[1];
+//
+//		@Before
+//		public void getTestClass() {
+//			rn = new PrimeNumber();
+//			rn.primeNumFlg = false;
+//		}
+//
+//		@Test(expected = NullPointerException.class)
+//		public void emptyArgumentCheck() {
+//
+//			rn.main(str);
+//		}
+//
+//		@Test
+//		public void argumentIsTwoOrMore() {
+//
+//			str[0] = "2";
+//			rn.main(str);
+//			assertTrue(rn.primeNumFlg);
+//		}
+//
+//		@Test
+//		public void argumentFewer2() {
+//
+//			String[] str = {"1"};
+//			rn.main(str);
+//			assertFalse(rn.primeNumFlg);
+//		}
+//	}
 
 	////////////////////////////////
 	// 引数に13が渡された時のテストクラス
 	public static class arugmentIs13 {
 
 		private static PrimeNumber rn;
-		private static boolean primeNumFlg = false;
 		private String[] str = new String[1];
-		private int except = 0;
 
 		@Before
 		public void setUp() {
 			rn = new PrimeNumber();
-			primeNumFlg = false;
+			rn.primeNumFlg = false;
 			str[0] = "13";
-			except = 13;
 		}
 
-		@SuppressWarnings("static-access")
 		@Test
 		public void PrimeNumCheckTrue() {
 			rn.main(str);
 			assertTrue(rn.primeNumFlg);
 		}
 
-		@SuppressWarnings("static-access")
 		@Test
 		public void primeNumberList() {
 
@@ -100,26 +91,20 @@ public class PrimeNumberTest {
 	public static class arugmentIs14 {
 
 		private static PrimeNumber rn;
-		private static boolean primeNumFlg = false;
 		private String[] str = new String[1];
-		private int except = 0;
 
 		@Before
 		public void setUp() {
 			rn = new PrimeNumber();
-			primeNumFlg = false;
+			rn.primeNumFlg = false;
 			str[0] = "14";
-			except = 14;
 		}
 
-		@SuppressWarnings("static-access")
 		@Test
 		public void PrimeNumCheckFalse() {
 
-			String str[] = {"14"};
-			int except = 14;
 			rn.main(str);
-			assertFalse(primeNumFlg);
+			assertFalse(rn.primeNumFlg);
 		}
 	}
 }
