@@ -31,6 +31,7 @@ public class PrimeNumber {
 		boolean parseResultFlg = parseToInteger(args[0]);
 		// 引数の型変換に失敗した場合、処理を終了する
 		if (!parseResultFlg) {
+			logger.severe("処理を終了します。");
 			return;
 		}
 
@@ -50,16 +51,14 @@ public class PrimeNumber {
 
 		// 引数を数値に変換
 		String inputStr = args;
-		int inputNum = 0;
 		try {
 			inputNum = Integer.parseInt(inputStr);
+			parseResultFlg = true;
 		} catch (NumberFormatException ex) {
 			ex.getMessage();
 			logger.severe("型変換に失敗しました。");
 			parseResultFlg = false;
 		}
-
-		parseResultFlg = true;
 
 		return parseResultFlg;
 	}
