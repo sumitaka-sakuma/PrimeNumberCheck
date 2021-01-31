@@ -24,7 +24,7 @@ public class PrimeNumber {
 			inputNum = Integer.parseInt(inputStr);
 		} catch (NumberFormatException ex) {
 			ex.getMessage();
-			return;
+			System.exit(1);
 		}
 
 		// 素数判定処理
