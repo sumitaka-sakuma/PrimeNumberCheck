@@ -8,8 +8,12 @@ public class PrimeNumber {
 
 	// リストの取得、格納クラスインスタンス
 	public static ListSetterGetter list = new ListSetterGetter();
+	// 引数（数値型）
+	private static int inputNum = 0;
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
+	// 型変換成否フラグ
+	private static boolean parseResultFlg = false;
 	// ロガー
 	private static Logger logger;
 
@@ -24,12 +28,9 @@ public class PrimeNumber {
 		}
 
 		// 引数を数値に変換
-		String inputStr = args[0];
-		int inputNum = 0;
-		try {
-			inputNum = Integer.parseInt(inputStr);
-		} catch (NumberFormatException ex) {
-			ex.getMessage();
+		boolean parseResultFlg = parseToInteger(args[0]);
+		// 引数の型変換に失敗した場合、処理を終了する
+		if (!parseResultFlg) {
 			return;
 		}
 
@@ -43,7 +44,24 @@ public class PrimeNumber {
 		} else {
 			logger.info(inputNum + "は素数ではありません");
 		}
+	}
 
+	public static boolean parseToInteger(String args) {
+
+		// 引数を数値に変換
+		String inputStr = args;
+		int inputNum = 0;
+		try {
+			inputNum = Integer.parseInt(inputStr);
+		} catch (NumberFormatException ex) {
+			ex.getMessage();
+			logger.severe("型変換に失敗しました。");
+			parseResultFlg = false;
+		}
+
+		parseResultFlg = true;
+
+		return parseResultFlg;
 	}
 
 	/*
