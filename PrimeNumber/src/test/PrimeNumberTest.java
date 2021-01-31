@@ -19,40 +19,45 @@ public class PrimeNumberTest {
 
 	////////////////////////////////
 	// 引数チェックのテストクラス
-//	public static class checkTheArugment {
-//
-//		private static PrimeNumber rn;
-//		public static boolean primeNumFlg = false;
-//		private String[] str = new String[1];
-//
-//		@Before
-//		public void getTestClass() {
-//			rn = new PrimeNumber();
-//			rn.primeNumFlg = false;
-//		}
-//
-//		@Test(expected = NullPointerException.class)
-//		public void emptyArgumentCheck() {
-//
-//			rn.main(str);
-//		}
-//
-//		@Test
-//		public void argumentIsTwoOrMore() {
-//
-//			str[0] = "2";
-//			rn.main(str);
-//			assertTrue(rn.primeNumFlg);
-//		}
-//
-//		@Test
-//		public void argumentFewer2() {
-//
-//			String[] str = {"1"};
-//			rn.main(str);
-//			assertFalse(rn.primeNumFlg);
-//		}
-//	}
+	public static class checkTheArugment {
+
+		private static PrimeNumber rn;
+		public static boolean primeNumFlg = false;
+		private String[] str = new String[1];
+
+		@Before
+		public void setUp() {
+			rn = new PrimeNumber();
+			rn.primeNumFlg = false;
+			str[0] = null;
+		}
+
+		@Test(expected = NullPointerException.class)
+		public void emptyArgumentCheck() {
+
+			if (str[0].equals(null) ) {
+				throw new NullPointerException("テスト成功");
+			} else {
+				fail("テスト失敗");
+			}
+		}
+
+		@Test
+		public void argumentIsTwoOrMore() {
+
+			str[0] = "2";
+			rn.main(str);
+			assertTrue(rn.primeNumFlg);
+		}
+
+		@Test
+		public void argumentFewer2() {
+
+			String[] str = {"1"};
+			rn.main(str);
+			assertFalse(rn.primeNumFlg);
+		}
+	}
 
 	////////////////////////////////
 	// 引数に13が渡された時のテストクラス
