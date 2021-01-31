@@ -16,22 +16,27 @@ import PrimeNumber.PrimeNumber;
 @RunWith(Enclosed.class)
 public class PrimeNumberTest {
 
-//	private static PrimeNumber rn;
-//	public static boolean primeNumFlg = false;
-//
-//	@Before
-//	public void getTestClass() {
-//		rn = new PrimeNumber();
-//		primeNumFlg = false;
-//	}
-//
-//	@SuppressWarnings("static-access")
-//	@Test(expected = NullPointerException.class)
-//	public void emptyArgumentCheck() {
-//
-//		String[] emptyStr = null;
-//		rn.main(emptyStr);
-//	}
+	////////////////////////////////
+	// 引数チェックのテストクラス
+	public static class checkTheArugment {
+
+		private static PrimeNumber rn;
+		public static boolean primeNumFlg = false;
+
+		@Before
+		public void getTestClass() {
+			rn = new PrimeNumber();
+			primeNumFlg = false;
+		}
+
+		@SuppressWarnings("static-access")
+		@Test(expected = NullPointerException.class)
+		public void emptyArgumentCheck() {
+
+			String[] emptyStr = null;
+			rn.main(emptyStr);
+		}
+	}
 
 	////////////////////////////////
 	// 引数に13が渡された時のテストクラス
@@ -70,14 +75,31 @@ public class PrimeNumberTest {
 		}
 	}
 
+	////////////////////////////////
+	// 引数に14が渡された時のテストクラス
+	public static class arugmentIs14 {
 
-//	@SuppressWarnings("static-access")
-//	@Test
-//	public void PrimeNumCheckFalse() {
-//
-//		String str[] = {"14"};
-//		int except = 14;
-//		rn.main(str);
-//		assertFalse(primeNumFlg);
-//	}
+		private static PrimeNumber rn;
+		private static boolean primeNumFlg = false;
+		private String[] str = new String[1];
+		private int except = 0;
+
+		@Before
+		public void setUp() {
+			rn = new PrimeNumber();
+			primeNumFlg = false;
+			str[0] = "14";
+			except = 14;
+		}
+
+		@SuppressWarnings("static-access")
+		@Test
+		public void PrimeNumCheckFalse() {
+
+			String str[] = {"14"};
+			int except = 14;
+			rn.main(str);
+			assertFalse(primeNumFlg);
+		}
+	}
 }
