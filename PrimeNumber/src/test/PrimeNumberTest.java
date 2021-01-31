@@ -41,7 +41,16 @@ public class PrimeNumberTest {
 
 		@SuppressWarnings("static-access")
 		@Test
-		public void ArgumentFewer2() {
+		public void argumentIsTwoOrMore() {
+
+			String[] str = {"2"};
+			rn.main(str);
+			assertTrue(rn.primeNumFlg);
+		}
+
+		@SuppressWarnings("static-access")
+		@Test
+		public void argumentFewer2() {
 
 			String[] str = {"1"};
 			rn.main(str);
