@@ -70,26 +70,25 @@ public class PrimeNumber {
 			// 1から順に割っていき割り切れるとき、yakusuuをインクリメント
 			yakusuu = 0;
 			for (int j = 1; j <= inputNum; j++) {
+				// 割る数が割られる数を超えた場合、ループを抜ける
+				if (i < j) {
+					break;
+				}
+
 				if (i % j == 0) {
 					yakusuu++;
 				}
 			}
+			// 約数が２つの場合は、素数
+			if (yakusuu == 2) {
+				primeNumList.add(i);
 
-			// 入力された値が素数かを判定
-			if (inputNum == i) {
-				// 約数が２つの場合は、素数
-				if (yakusuu == 2) {
-					// 素数判定フラグをtrueにする
+				// 引数について素数判定フラグをtrueにする
+				if (inputNum == i) {
 					primeNumFlg = true;
-					primeNumList.add(i);
 					break;
 				}
-			} else {
-				// 約数が２つの場合は、素数
-				if (yakusuu == 2) {
-					primeNumList.add(i);
-					continue;
-				}
+				continue;
 			}
 			// 合成数リストに格納
 			compositeNumList.add(i);
