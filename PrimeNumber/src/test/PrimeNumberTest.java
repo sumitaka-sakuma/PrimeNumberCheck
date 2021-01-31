@@ -22,11 +22,13 @@ public class PrimeNumberTest {
 
 		private static PrimeNumber rn;
 		public static boolean primeNumFlg = false;
+		private String[] str = new String[1];
+		private int except = 0;
 
 		@Before
 		public void getTestClass() {
 			rn = new PrimeNumber();
-			primeNumFlg = false;
+			rn.primeNumFlg = false;
 		}
 
 		@SuppressWarnings("static-access")
@@ -35,6 +37,15 @@ public class PrimeNumberTest {
 
 			String[] emptyStr = null;
 			rn.main(emptyStr);
+		}
+
+		@SuppressWarnings("static-access")
+		@Test
+		public void ArgumentFewer2() {
+
+			String[] str = {"1"};
+			rn.main(str);
+			assertFalse(rn.primeNumFlg);
 		}
 	}
 
