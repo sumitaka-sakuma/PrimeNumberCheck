@@ -2,6 +2,7 @@ package PrimeNumber;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class PrimeNumber {
 
@@ -9,8 +10,13 @@ public class PrimeNumber {
 	public static ListSetterGetter list = new ListSetterGetter();
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
+	// ロガー
+	private static Logger logger;
 
 	public static void main(String[] args) {
+
+		// ロガー
+		logger = Logger.getLogger("PrimeNumber");
 
 		// 引数がない場合、処理を終了する
 		if (args.length == 0) {
@@ -28,21 +34,16 @@ public class PrimeNumber {
 		}
 
 		// 素数判定処理
+		logger.info("素数判定処理を行います");
 		boolean primeNumFlg = primeNumberCheck(inputNum);
 
 		// 結果表示
 		if (primeNumFlg) {
-			System.out.println("素数です");
+			logger.info(inputNum + "は素数です");
 		} else {
-			System.out.println("素数ではありません");
+			logger.info(inputNum + "は素数ではありません");
 		}
 
-		for (int primeNum : list.getPrimeNumList()) {
-			System.out.println("素数:" + primeNum);
-		}
-		for (int compositeNum : list.getCompositeNumList()) {
-			System.out.println("合成数:" + compositeNum);
-		}
 	}
 
 	/*
