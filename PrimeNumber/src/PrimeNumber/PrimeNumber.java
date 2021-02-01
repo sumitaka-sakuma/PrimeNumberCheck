@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * 引数を受け取り、素数かどうかを判定するクラス
+ * @author sakumasumitaka
+ *
+ */
 public class PrimeNumber {
 
 	// リストの取得、格納クラスインスタンス
@@ -17,6 +22,10 @@ public class PrimeNumber {
 	// ロガー
 	private static Logger logger;
 
+	/**
+	 * メイン処理
+	 * @param args コマンドライン引数
+	 */
 	public static void main(String[] args) {
 
 		// ロガー
@@ -47,6 +56,11 @@ public class PrimeNumber {
 		}
 	}
 
+	/*
+	 * 数値への変換処理
+	 * @params args コマンドライン引数の０番目の要素
+	 * @return parseResultFlg 型変換成否フラグ
+	 */
 	public static boolean parseToInteger(String args) {
 
 		// 引数を数値に変換
