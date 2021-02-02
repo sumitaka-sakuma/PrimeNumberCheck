@@ -13,12 +13,8 @@ public class PrimeNumber {
 
 	// リストの取得、格納クラスインスタンス
 	public static ListSetterGetter list = new ListSetterGetter();
-	// 引数（数値型）
-	private static int inputNum = 0;
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
-	// 型変換成否フラグ
-	public static boolean parseResultFlg = false;
 	// ロガー
 	private static Logger logger;
 
@@ -37,12 +33,7 @@ public class PrimeNumber {
 		}
 
 		// 引数を数値に変換
-		parseToInteger(args[0]);
-		// 引数の型変換に失敗した場合、処理を終了する
-//		if (!parseResultFlg) {
-//			logger.severe("処理を終了します。");
-//			return;
-//		}
+		int inputNum = parseToInteger(args[0]);
 
 		// 素数判定処理
 		logger.info("素数判定処理を行います");
@@ -59,18 +50,17 @@ public class PrimeNumber {
 	/*
 	 * 数値への変換処理
 	 * @params args コマンドライン引数の０番目の要素
-	 * @return parseResultFlg 型変換成否フラグ
+	 * @return inputNum 型変換後の引数
 	 */
 	public static int parseToInteger(String args) {
 
 		// 引数を数値に変換
 		String inputStr = args;
+		int inputNum = 0;
 		try {
 			inputNum = Integer.parseInt(inputStr);
-			parseResultFlg = true;
 		} catch (NumberFormatException ex) {
 			ex.getMessage();
-			logger.severe("型変換に失敗しました。");
 			throw new NumberFormatException("型変換に失敗しました。");
 		}
 
