@@ -63,7 +63,6 @@ public class PrimeNumberTest {
 
 			String moji = "文字列";
 			rn.parseToInteger(moji);
-			throw new NumberFormatException();
 		}
 	}
 
