@@ -35,11 +35,8 @@ public class PrimeNumberTest {
 		@Test(expected = NullPointerException.class)
 		public void emptyArgumentCheck() {
 
-			if (str[0].equals(null) ) {
-				throw new NullPointerException("テスト成功");
-			} else {
-				fail("テスト失敗");
-			}
+			String empStr[] = null;
+			rn.main(empStr);
 		}
 
 		@Test
