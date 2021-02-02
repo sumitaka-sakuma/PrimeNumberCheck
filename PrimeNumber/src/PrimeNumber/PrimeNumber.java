@@ -18,7 +18,7 @@ public class PrimeNumber {
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
 	// 型変換成否フラグ
-	private static boolean parseResultFlg = false;
+	public static boolean parseResultFlg = false;
 	// ロガー
 	private static Logger logger;
 
@@ -37,12 +37,12 @@ public class PrimeNumber {
 		}
 
 		// 引数を数値に変換
-		boolean parseResultFlg = parseToInteger(args[0]);
+		parseToInteger(args[0]);
 		// 引数の型変換に失敗した場合、処理を終了する
-		if (!parseResultFlg) {
-			logger.severe("処理を終了します。");
-			return;
-		}
+//		if (!parseResultFlg) {
+//			logger.severe("処理を終了します。");
+//			return;
+//		}
 
 		// 素数判定処理
 		logger.info("素数判定処理を行います");
@@ -61,7 +61,7 @@ public class PrimeNumber {
 	 * @params args コマンドライン引数の０番目の要素
 	 * @return parseResultFlg 型変換成否フラグ
 	 */
-	public static boolean parseToInteger(String args) {
+	public static int parseToInteger(String args) {
 
 		// 引数を数値に変換
 		String inputStr = args;
@@ -71,10 +71,10 @@ public class PrimeNumber {
 		} catch (NumberFormatException ex) {
 			ex.getMessage();
 			logger.severe("型変換に失敗しました。");
-			parseResultFlg = false;
+			throw new NumberFormatException("型変換に失敗しました。");
 		}
 
-		return parseResultFlg;
+		return inputNum;
 	}
 
 	/*

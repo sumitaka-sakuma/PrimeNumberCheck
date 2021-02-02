@@ -57,6 +57,15 @@ public class PrimeNumberTest {
 			rn.main(str);
 			assertFalse(rn.primeNumFlg);
 		}
+
+		@Test(expected = NumberFormatException.class)
+		public void argumentIsString() {
+
+			String moji = "文字列";
+			rn.parseToInteger(moji);
+			assertFalse(rn.parseResultFlg);
+			throw new NumberFormatException();
+		}
 	}
 
 	////////////////////////////////
