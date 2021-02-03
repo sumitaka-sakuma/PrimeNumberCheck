@@ -3,6 +3,11 @@ package PrimeNumber;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 素数、合成数のリストの取得や格納をまとめたクラス
+ * @author sakumasumitaka
+ *
+ */
 @SuppressWarnings("static-access")
 public class ListSetterGetter {
 
