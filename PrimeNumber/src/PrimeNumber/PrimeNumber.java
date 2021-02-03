@@ -16,7 +16,7 @@ public class PrimeNumber {
 	// 素数判定フラグ
 	public static boolean primeNumFlg = false;
 	// ロガー
-	private static Logger logger;
+	public static Logger logger;
 
 	/**
 	 * メイン処理
@@ -83,6 +83,7 @@ public class PrimeNumber {
 
 		// 2未満の素数は存在しないため処理を終了する
 		if (inputNum < 2) {
+			logger.info("2未満の素数は存在しないため、処理を終了します。");
 			return primeNumFlg;
 		}
 
