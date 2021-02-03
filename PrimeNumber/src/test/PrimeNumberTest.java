@@ -92,6 +92,7 @@ public class PrimeNumberTest {
 			rn.main(str);
 			assertThat(rn.list.getPrimeNumList(), is(expectPrimeNumList));
 			assertThat(rn.list.getCompositeNumList(), is(expectCompositeNumList));
+			assertTrue(rn.primeNumFlg);
 		}
 	}
 
