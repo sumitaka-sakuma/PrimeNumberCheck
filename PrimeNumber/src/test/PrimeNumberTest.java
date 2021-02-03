@@ -24,6 +24,7 @@ public class PrimeNumberTest {
 		private static PrimeNumber rn;
 		public static boolean primeNumFlg = false;
 		private String[] str = new String[1];
+		private String[] multipleArgs = new String[3];
 
 		@Before
 		public void setUp() {
@@ -60,6 +61,16 @@ public class PrimeNumberTest {
 
 			String moji = "文字列";
 			rn.parseToInteger(moji);
+		}
+
+		@Test
+		public void MultipleArguments() {
+
+			multipleArgs[0] = "13";
+			multipleArgs[1] = "100";
+			multipleArgs[2] = "文字列";
+			rn.main(multipleArgs);
+			assertTrue(rn.primeNumFlg);
 		}
 	}
 
