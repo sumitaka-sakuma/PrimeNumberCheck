@@ -22,7 +22,6 @@ public class PrimeNumberTest {
 	public static class checkTheArugment {
 
 		private static PrimeNumber rn;
-		public static boolean primeNumFlg = false;
 		private String[] str = new String[1];
 		private String[] multipleArgs = new String[3];
 
